@@ -1,18 +1,28 @@
-# vue-kavia
+# Ocean Notes (Vue 3 + Vite)
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple notes-taking app with create, view, edit, and delete, following the Ocean Professional style guide.
 
-## Recommended IDE Setup
+- Persistence: localStorage (key `notes_app_v1`)
+- Routes:
+  - `/` list/home
+  - `/note/:id` view note
+  - `/new` create note
+  - `/edit/:id` edit note
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Environment variables
 
-## Type Support for `.vue` Imports in TS
+These are read via `import.meta.env` when available (no backend required):
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+- `VITE_API_BASE`
+- `VITE_BACKEND_URL`
+- `VITE_FRONTEND_URL`
+- `VITE_WS_URL`
+- `VITE_NODE_ENV`
+- `VITE_ENABLE_SOURCE_MAPS`
+- `VITE_PORT`
+- `VITE_LOG_LEVEL`
+- `VITE_FEATURE_FLAGS`
+- `VITE_EXPERIMENTS_ENABLED`
 
 ## Project Setup
 
@@ -20,26 +30,24 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development (port 3000)
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Open the running container URL: http://localhost:3000 (or the preview URL).
+
+### Production build
 
 ```sh
 npm run build
+npm run preview
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## Notes
 
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- Autosave: Fields autosave every ~2 seconds and on blur.
+- Delete: Confirms before removing a note.
+- Search: Filters titles and content in the sidebar.
+- Styling: Primary #2563EB and secondary #F59E0B with subtle gradients and shadows.
